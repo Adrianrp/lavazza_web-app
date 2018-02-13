@@ -1,0 +1,471 @@
+/*----- GLOBALS ----------------------*/
+@import "normalize";
+@import "susy";
+@import "../node_modules/breakpoint-sass/stylesheets/breakpoint";
+@import "bourbon", "bitters/base";
+
+$susy: (
+        columns: 6,
+        global-box-sizing: border-box,
+        //debug: (image: show)
+
+);
+@font-face {
+  font-family: 'Verlag-Book';
+  src: url('fonts/Verlag-Book.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Verlag-Book.otf')  format('opentype'),
+  url('fonts/Verlag-Book.woff') format('woff'),
+  url('fonts/Verlag-Book.ttf')  format('truetype'),
+  url('fonts/Verlag-Book.svg#Verlag-Book') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Verlag-Bold';
+  src: url('fonts/Verlag-Bold.eot?#iefix') format('embedded-opentype'),
+  url('fonts/Verlag-Bold.otf')  format('opentype'),
+  url('fonts/Verlag-Bold.woff') format('woff'),
+  url('fonts/Verlag-Bold.ttf')  format('truetype'),
+  url('fonts/Verlag-Bold.svg#Verlag-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/*----- //GLOBALS ----------------------*/
+
+/*----- VARIABLES, MIXINS ----------------------*/
+@mixin cf {
+  &:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+/*----- //VARIABLES, MIXINS ----------------------*/
+
+/*----- LAYOUT ----------------------*/
+body {
+  //background: url('images/Mobil_billeder3.png') no-repeat top center;
+  color: white;
+  text-align: center;
+  height: 100%;
+  line-height: 1.2;
+  //font-size: 0.9em;
+  @include breakpoint($large-screen) {
+    //background: url('images/Desktop_billeder3.png') no-repeat top center;
+  }
+}
+.wrap {
+  font-family: 'Verlag-Book', sans-serif;
+  background: #1a2f47 url('images/Mobil_billeder.png') no-repeat top left;
+  background-size: cover;
+  @include container(795px);
+  min-height: 100%;
+  margin-bottom: -150px;
+  @include breakpoint($large-screen) {
+    @include show-grid(12);
+    background: #1a2f47 url('images/Desktop_billeder2.png') no-repeat top 30%;
+    background-size: cover;
+  }
+}
+.wrap-register {
+  background: #1a2f47 url('images/Mobil_billeder2.png') no-repeat top center;
+  background-size: cover;
+  @include breakpoint($large-screen) {
+    background: #1a2f47 url('images/Desktop_billeder.png') no-repeat top center;
+    background-size: cover;
+  }
+}
+.wrap-slut {
+  background: #1a2f47 url('images/Mobil_billeder3.png') no-repeat top center;
+
+  @include breakpoint($large-screen) {
+    background: #1a2f47 url('images/Desktop_billeder4.png') no-repeat top center;
+  }
+}
+.wrap.wrap-dashboard {
+  @include container(1200px);
+}
+.wrap:after {
+  content: "";
+  display: block;
+}
+.header-container,
+.prize-container,
+main {
+  padding-top: 30px;
+}
+
+main {
+  @include cf;
+}
+h1 {
+  font-size: 1em;
+  font-weight: normal;
+  font-family: 'Verlag-Bold', sans-serif;
+}
+h2 {
+  font-size: 1.50em;
+  font-weight: normal;
+  font-family: 'Verlag-Bold', sans-serif;
+}
+h3 {
+  font-size: 1.2em;
+  font-weight: normal;
+  font-family: 'Verlag-Bold', sans-serif;
+}
+.video-container, .fb-container,
+.wrap-prized
+ {
+  @include span(6 of 6);
+  @include cf;
+  margin-top: 20px;
+
+  @include breakpoint($large-screen) {
+    margin-top: 0;
+  }
+}
+.spacer-videos {
+  @include breakpoint($large-screen) {
+    padding: 45px 20px 0;
+  }
+}
+.video-list-container {
+  position: relative;
+  @include cf;
+  @include span(4 of 6);
+  @include push(1);
+  padding-bottom: span(0.5);
+  /*&:nth-child(3n) {
+    padding-bottom: span(1);
+  }*/
+
+  @include breakpoint($large-screen) {
+    @include span(7 of 12);
+    @include push(1.25);
+    /*&:nth-child(3n) {
+      padding-bottom: span(0.5);
+      @include last;
+    }*/
+  }
+}
+.video-list-container-archive {
+  position: relative;
+  @include cf;
+  @include span(4 of 6);
+  @include push(1);
+  padding-bottom: span(0.5);
+  &:nth-child(3n) {
+    padding-bottom: span(1);
+  }
+  iframe {
+    @include breakpoint($large-screen) {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @include breakpoint($large-screen) {
+    @include span(4 of 12);
+    @include push(0);
+    &:nth-child(3n) {
+      padding-bottom: span(0.5);
+      @include last;
+    }
+  }
+}
+iframe {
+  width: 100%;
+
+  @include breakpoint($large-screen) {
+    width: 436px;
+    height: 254px;
+  }
+}
+.weekNr {
+  text-transform: uppercase;
+  color: $bronze;
+  border-bottom: 1px solid $bronze;
+  text-align: left;
+  display: block;
+  width: 200%;
+  margin: 20px 0 10px;
+  position: absolute;
+  top: -51px;
+  left: -20%;
+
+  @include breakpoint($large-screen) {
+    position: absolute;
+    top: -51px;
+    left: 0;
+    width: 770px;
+  }
+}
+
+.video-nr1, .video-nr2,
+.video-nr4, .video-nr5,
+.video-nr7, .video-nr8,
+.video-nr10, .video-nr11,
+.video-nr12, .video-nr13 {
+  display: none;
+}
+.color-me {
+  color: $bronze;
+}
+input {
+  font-family: 'Verlag-Book', sans-serif;
+
+}
+/*----- //LAYOUT ----------------------*/
+/*----- HEADER ----------------------*/
+
+/*----- // HEADER ----------------------*/
+/*----- INTRO --------------------------*/
+.intro-container {
+  @include span(4 of 6 wide);
+  @include push(1);
+
+  @include breakpoint($large-screen) {
+    @include span(10 of 12);
+    @include push(0.5);
+  }
+}
+.intro-text {
+  @include span(4 of 6 wide);
+  @include push(1);
+}
+
+/*----- // INTRO ------------------------*/
+/*----- FB-LOGIN ----------------------*/
+
+/*----- // FB-LOGIN ----------------------*/
+.fb-container {
+  @include span(4 of 6);
+  @include push(1);
+  padding: 50px 0;
+
+  p {
+    margin: 20px 0;
+  }
+}
+.login-fb-btn {
+  margin-bottom: 20px;
+}
+/*----- FORMS ----------------------*/
+.text-danger {
+  color: #e61212;
+  padding: 5px;
+  margin-bottom: 10px;
+  display: block;
+  //background-color: #0a1524;
+}
+input[type='text'], [type='email'], [type='tel'] {
+  background-color: #fff;
+}
+.register-container {
+  @include span(4 of 6);
+  @include push(1);
+  @include cf;
+  padding-bottom: 50px;
+
+  h2 {
+    text-transform: uppercase;
+  }
+  @include breakpoint($large-screen) {
+    @include span(8 of 12);
+    padding-top: 30px;
+    h2 {
+      padding-bottom: 20px;
+    }
+  }
+}
+#text-field-default {
+  box-shadow: none;
+}
+.submit-btn {
+
+  @include breakpoint($large-screen) {
+    @include span(4 of 6);
+    @include push(1);
+    //padding-top: 30px;
+  }
+}
+.advarsel {
+  color: $bronze;
+  padding: 10px 0;
+  font-size: 0.8em;
+}
+/*----- // FORMS ----------------------*/
+/*----- VIDEO-ARCHIVE ----------------------*/
+.wrap-archive {
+  background-color: #fff;
+  overflow: hidden;
+  margin-top: 10px;
+  @include cf;
+  @include breakpoint($large-screen) {
+    margin-top: 0;
+  }
+}
+.outliner-video-archive {
+  @include cf;
+
+  @include breakpoint($large-screen) {
+    margin: 45px 20px 0;
+  }
+}
+.archive-content {
+  @include cf;
+  padding-top: 10px;
+
+  @include breakpoint($large-screen) {
+
+  }
+}
+.archive-content strong {
+  padding-bottom: 40px;
+  display: block;
+  color: #9e9e9e;
+
+  @include breakpoint($large-screen) {
+      padding-bottom: 0px;
+      display: inline;
+  }
+}
+.example-appear {
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity .5s ease-in;
+}
+.title-video {
+  position: absolute;
+  padding: 7px 10px;
+  color: $bronze;
+
+  @include breakpoint($large-screen) {
+    display: none;
+  }
+}
+.has-star {
+  position: absolute;
+  bottom: 23%;
+  left: 5px;
+}
+/*----- // VIDEO-ARCHIVE ----------------------*/
+/*----- EFTER SUBMITION ----------------------*/
+.prize-container, .wrap-archive {
+  @include span(6 of 6);
+  h2 {
+   text-transform: uppercase;
+  }
+}
+.prize-text {
+  @include span(4 of 6);
+  @include push(1);
+  @include cf;
+
+  @include breakpoint($large-screen) {
+    padding-bottom: 50px;
+    @include span(10 of 12);
+    @include push(0.5);
+  }
+}
+.fb-share-button {
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  @include breakpoint($large-screen) {
+    margin-bottom: 0;
+  }
+}
+
+/*----- // EFTER SUBMITION ----------------------*/
+/*----- FOOTER ----------------------*/
+footer {
+  position: relative;
+  @include span(6 of 6);
+  @include push(0);
+  @include cf;
+  height: 150px;
+  @include breakpoint($large-screen) {
+    @include span(12 of 12);
+    padding-top: 40px;
+  }
+}
+.st0{fill:#FFFFFF;}
+
+.footer-slut {
+  background-color: #ffffff;
+  svg.st0 {
+    fill: blue;
+  }
+}
+.betingelser {
+  font-size: 0.8em;
+  @include span(6 of 6);
+  color: $bronze;
+  text-transform: uppercase;
+  @include breakpoint($large-screen) {
+   @include span(4 of 12 last);
+  }
+}
+.text-betingelser-container {
+  text-align: left;
+  font-size: 0.8em;
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  .betingelser-text {
+    padding-left: gutter(6);
+    padding-right: gutter(6);
+
+  }
+}
+.logo-container {
+  @include cf;
+  @include span(3 of 6);
+  @include push(1.5);
+
+  @include breakpoint($large-screen) {
+    @include span(8 of 12);
+    @include push(0);
+  }
+}
+.logo {
+  @include span(6 of 6);
+  @include push(0);
+  @include breakpoint($large-screen) {
+    @include span(3 of 12);
+    @include push(3.75);
+  }
+}
+/*----- // FOOTER ----------------------*/
+/*----- BARISTA ----------------------*/
+.random-winner-container {
+  @include span(6 of 6);
+  @include breakpoint($large-screen) {
+    @include span(3 of 12);
+  }
+}
+.random-winner-list {
+  text-align: left;
+  padding: 10px;
+  background-color: white;
+  color: #000;
+}
+.dashboard-video-container {
+  @include span(6 of 6);
+  @include breakpoint($large-screen) {
+    @include span(9 of 12 last);
+  }
+}
+.dashboard-users-container {
+  @include span(6 of 6);
+  @include breakpoint($large-screen) {
+    @include span(9 of 12 last);
+  }
+}
+/*----- // BARISTA ----------------------*/
